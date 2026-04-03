@@ -1,0 +1,5 @@
+# Cleaner package
+A package consisting of a file organizer and a file de-organizer
+
+This repo contains 2 modules, one called "cleaner", and the other "uncleaner". the cleaner module contains 3 functions, clean_all, clean_all_except, cleanup. The cleanup function takes as input an extension and a folder name. It grabs all the files in the current directory with that extension and places it into a folder with the name given by the user. The clean_all function accepts a dictionary, with the keys being extensions and values being folder_names. If no dictionary is given, it simply places all the files in a folder called "Files". Set the extension to "*" to place all files in a folder named according to you. The clean_all_except function does the same but can simply accept a list containing the names of files you don't want to keep in the folders, the list remains empty if it isn't given.
+        The uncleaner module consists of one function called unclean. It simply takes all the files from the current directory and moves them to their parent directory. The uncleaner does not have much useful functionality right nowm so I will try to update it in the future
