@@ -4,7 +4,18 @@ from shutil import move
 
 
 # Takes all the files in the current directory and puts files of the given extension into the given folder name
-def cleanup(extension, folder_name):
+def cleanup(extension: str, folder_name: str):
+    """
+    Takes all the files in the current directory and puts files of the given extension into the given folder name
+
+    Args:
+        extension (str): The extension of the files to clean (like these -> py, html, txt, etc)
+        folder_name (Path): The folder to put the files into
+
+    Raises:
+        ValueError: If folder name contains spaces or the extensions contain periods
+    """
+
     if (len(folder_name.split(" ")) > 1):
         raise ValueError("Folder name cannot contain spaces")
     if extension[0] == ".":
@@ -23,6 +34,13 @@ def cleanup(extension, folder_name):
 # Same as cleanup but cleans multiple extensions. 
 # Accepts a dictionary with extensions as keys and folder names as values.
 def clean_all(folder_names_dictionary=None):
+    """
+    Similar to clean all, but cleans many extensions simultaneously by iteratively running the cleanup function
+
+    Args:
+        folder_names_dictionary (dict): A dictionary where keys are extensions and values are folder names.
+                                        If no dictionary is given, then all files are sorted into one "File" folder
+    """
     if folder_names_dictionary is None:
         folder_names_dictionary = {"*": "Files"}
 
